@@ -193,4 +193,62 @@
 			background: #fff;
 		}
 	}
+
+	/**** MEDIA QUERIES ****/
+	@include screenSize(tablet) {
+		padding: 1.5rem 1.2rem;
+		.dashboard-heading {
+			.data-card {
+				width: 49%;
+				margin-bottom: 1rem;
+			}
+
+			.data-card:nth-child(5) {
+				width: 100%;
+			}
+		}
+		.dashboard-content {
+			.content-sidebar {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+				.data-summary,
+				.module-section {
+					width: 49%;
+				}
+			}
+			.content-main {
+				width: 100%;
+			}
+		}
+	}
+	@include screenSize(ss-phone) {
+		padding: 1.5rem 1rem;
+		.dashboard-heading {
+			.data-card {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+		}
+		.dashboard-content {
+			.content-sidebar {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+				flex-direction: column;
+				.data-summary,
+				.module-section {
+					width: 100%;
+				}
+			}
+			.content-main {
+				width: 100%;
+				.ant-table-wrapper {
+					overflow-x: auto;
+				}
+			}
+		}
+	}
 }

@@ -3,6 +3,28 @@
 	box-shadow: $bs-nav;
 	display: flex;
 	align-items: center;
+	.toggle-button {
+		display: none;
+		background: #fff;
+		border: 1px solid #000;
+	}
+	.navbar-collapse {
+		width: 100%;
+	}
+	.navbar-collapse.hide {
+		display: none;
+	}
+	.navbar-collapse.show {
+		display: flex;
+	}
+	.logo-wrapper {
+		display: flex;
+		align-items: center;
+		min-width: 200px;
+		span {
+			font-weight: 500;
+		}
+	}
 	.nav-left {
 		display: flex;
 		flex: 1;
@@ -77,6 +99,104 @@
 		span {
 			color: $primary-blue;
 			font-weight: 600;
+		}
+	}
+	/**** MEDIA QUERIES ****/
+
+	@include screenSize(small-desktop) {
+		padding: 0;
+	}
+
+	@include screenSize(tablet) {
+		flex-direction: column;
+		justify-content: flex-start;
+		padding: 0;
+		.logo-container {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			margin-bottom: 1rem;
+
+			.toggle-button {
+				display: inline-flex;
+				align-items: center;
+			}
+		}
+		.navbar-collapse {
+			flex-direction: column;
+		}
+		.nav-left,
+		.nav-right,
+		.nav-left > ul,
+		.nav-left > ul > li {
+			width: 100%;
+		}
+		.nav-left {
+			flex-direction: column;
+			ul {
+				padding-inline-start: 0;
+				flex-direction: column;
+			}
+		}
+		.nav-right {
+			justify-content: space-between;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+			.search {
+				width: 50%;
+			}
+			.notification {
+				margin: 0;
+			}
+		}
+	}
+	@include screenSize(ss-phone) {
+		flex-direction: column;
+		justify-content: flex-start;
+		padding: 0;
+		.logo-container {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			margin-bottom: 1rem;
+			.toggle-button {
+				display: inline-flex;
+				align-items: center;
+			}
+		}
+		.navbar-collapse {
+			flex-direction: column;
+		}
+		.nav-left,
+		.nav-right,
+		.nav-left > ul,
+		.nav-left > ul > li {
+			width: 100%;
+		}
+		.nav-left {
+			flex-direction: column;
+			ul {
+				padding-inline-start: 0;
+				flex-direction: column;
+			}
+		}
+		.nav-right {
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			margin-top: 1rem;
+
+			.search,
+			.notification,
+			.avi-container {
+				margin: 0;
+			}
+			.search {
+				width: 60%;
+			}
+			.notification {
+				margin: 0;
+			}
 		}
 	}
 }

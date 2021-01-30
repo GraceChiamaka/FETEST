@@ -201,7 +201,6 @@ const DashboardPage = () => {
 		{
 			title: "STATUS",
 			dataIndex: "status",
-			className: "",
 			render: (status) => (
 				<span
 					className={
@@ -237,6 +236,7 @@ const DashboardPage = () => {
 			title: "",
 			dataIndex: "id",
 			align: "Right",
+
 			render: (id) => (
 				<div>
 					<Dropdown overlay={menu} trigger="click">
@@ -413,7 +413,7 @@ const DashboardPage = () => {
 			<div className="dashboard-content">
 				<Row justify="space-between">
 					<div className="content-sidebar">
-						<Card>
+						<Card className="data-summary">
 							<div className="side-section-heading">
 								<img src={PawnIcon} alt="pawn icon" />
 								<h3>Divisions Summary</h3>
