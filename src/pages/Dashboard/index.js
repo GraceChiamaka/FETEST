@@ -496,11 +496,6 @@ const DashboardPage = () => {
 						/>
 					</div>
 				</Row>
-
-				<Row justify="space-between">
-					<Col lg={4}></Col>
-					<Col lg={19}></Col>
-				</Row>
 			</div>
 		</div>
 	);
