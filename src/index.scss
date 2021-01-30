@@ -3,6 +3,16 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "IBM Plex Sans", sans-serif;
+	color: #25213b;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
 }
 
 @import "./styles/main.scss";

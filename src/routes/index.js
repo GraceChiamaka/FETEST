@@ -7,7 +7,19 @@ const Routes = () => {
 	return (
 		<BrowserRouter history={history}>
 			<Switch>
-				<Route path="/" exact key="dashboard" component={DashboardPage} />
+				<Route path="/" exact key="home" component={DashboardPage} />
+				<Route
+					path="/divisions"
+					exact
+					key="dashboard"
+					component={DashboardPage}
+				/>
+				<Route
+					path="/projects"
+					exact
+					key="projects"
+					component={DashboardPage}
+				/>
 			</Switch>
 		</BrowserRouter>
 	);

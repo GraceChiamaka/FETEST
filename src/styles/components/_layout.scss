@@ -1,0 +1,14 @@
+.layout-container {
+	height: 100vh;
+	padding: 0 1rem;
+	.sidebar {
+		width: 20%;
+		height: inherit;
+		// border: 2px solid;
+		position: fixed;
+	}
+	.main-content {
+		margin-left: 20%;
+		width: calc(100% - 20%);
+	}
+}
