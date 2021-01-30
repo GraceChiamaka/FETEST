@@ -1,0 +1,254 @@
+.dashboard-container {
+	width: 100%;
+	padding: 0 1.2rem;
+	.breadcrumb-container {
+		padding: 1rem 0;
+	}
+	.breadcrumb-container {
+		.ant-breadcrumb {
+			.history-breadcrumb {
+				a {
+					color: $primary-gray-200;
+				}
+			}
+			.ant-breadcrumb-separator {
+				color: #0a5685;
+				font-weight: 500;
+			}
+
+			.active-page {
+				color: $primary-gray-200;
+			}
+		}
+	}
+	.dashboard-heading {
+		.ant-row {
+			width: 100%;
+		}
+		.data-card {
+			width: 19%;
+		}
+	}
+	.dashboard-content {
+		margin-top: 1.5rem;
+		.content-sidebar {
+			width: 19%;
+		}
+		.content-main {
+			width: calc(100% - 20.5%);
+		}
+		.side-section-heading {
+			display: flex;
+			align-items: center;
+			margin-bottom: 1.5rem;
+			img {
+				margin-right: 1rem;
+				width: 30px;
+				height: 30px;
+			}
+			h3 {
+				font-size: 14px;
+				font-weight: 700;
+			}
+		}
+		.card-row {
+			display: flex;
+			align-items: center;
+			margin-bottom: 0.8rem;
+			img {
+				margin-right: 1rem;
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+		.module-section {
+			margin-top: 1.5rem;
+			.history-timeline {
+				.ant-timeline {
+					.title {
+						font-size: 12px;
+						color: #747474;
+						font-weight: 700;
+					}
+					.detail {
+						display: flex;
+						color: #a1aace;
+						font-size: 12px;
+						margin-top: 0.6rem;
+
+						.category {
+							.dot {
+								display: inline-block;
+								width: 8px;
+								height: 8px;
+								border-radius: 50%;
+								background: #a1aace;
+								margin: 0 6px;
+							}
+						}
+					}
+					.ant-timeline-item-tail {
+						border-left: 2px dotted #c4c4c4;
+					}
+					.ant-timeline-item {
+						.ant-timeline-item-head {
+							background: #707070;
+							border-color: #707070;
+						}
+					}
+				}
+			}
+		}
+		.info-table-name {
+			display: flex;
+			align-items: center;
+			font-size: $f-sm;
+			img {
+				margin-right: 1rem;
+				width: 15px;
+				height: 15px;
+			}
+			span {
+				font-weight: 500;
+			}
+		}
+		.info-table-location {
+			font-size: 12px;
+			.state {
+				font-weight: 500;
+			}
+			.address {
+				color: $secondary-gray;
+				font-weight: 500;
+			}
+		}
+		.status-badge {
+			display: inline-block;
+			padding: 2px 12px;
+			border-radius: 11px;
+			font-weight: 600;
+			font-size: $f-sm;
+		}
+		.status-badge.badge-success {
+			color: $secondary-purple-2;
+			background: $secondary-purple-lighter;
+		}
+		.status-badge.badge-warning {
+			color: $secondary-yellow;
+			background: $secondary-yellow-lighter;
+		}
+		.info-entries {
+			font-size: 12px;
+			h4 {
+				font-weight: 700;
+
+				.dot {
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background: $primary-black-100;
+					margin-right: 5px;
+				}
+			}
+			p {
+				color: $secondary-gray;
+				font-weight: 500;
+				text-transform: capitalize;
+			}
+		}
+		.info-risk-profile {
+			.risk-profile-container {
+				display: flex;
+				align-items: center;
+				img {
+					margin-right: 10px;
+				}
+				.profile-text {
+					font-weight: 500;
+					text-transform: capitalize;
+				}
+				.profile-text.text-danger {
+					color: $secondary-red;
+				}
+				.profile-text.text-green {
+					color: $secondary-green;
+				}
+				.profile-text.text-purple {
+					color: $secondary-purple;
+				}
+			}
+		}
+		.ant-table-container {
+			box-shadow: -2px 1px 4px 1px rgba(183, 183, 183, 0.25);
+			.ant-table-thead > tr > th {
+				background: #f3f6f9;
+				border: 1px solid #f3f6f9;
+				color: #899198;
+				font-size: 12px;
+			}
+		}
+		.user-info-row > .ant-table-cell {
+			padding: 11px 16px;
+			background: #fff;
+		}
+	}
+
+	/**** MEDIA QUERIES ****/
+	@include screenSize(tablet) {
+		padding: 1.5rem 1.2rem;
+		.dashboard-heading {
+			.data-card {
+				width: 49%;
+				margin-bottom: 1rem;
+			}
+
+			.data-card:nth-child(5) {
+				width: 100%;
+			}
+		}
+		.dashboard-content {
+			.content-sidebar {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+				.data-summary,
+				.module-section {
+					width: 49%;
+				}
+			}
+			.content-main {
+				width: 100%;
+			}
+		}
+	}
+	@include screenSize(ss-phone) {
+		padding: 1.5rem 1rem;
+		.dashboard-heading {
+			.data-card {
+				width: 100%;
+				margin-bottom: 1rem;
+			}
+		}
+		.dashboard-content {
+			.content-sidebar {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 1rem;
+				flex-direction: column;
+				.data-summary,
+				.module-section {
+					width: 100%;
+				}
+			}
+			.content-main {
+				width: 100%;
+				.ant-table-wrapper {
+					overflow-x: auto;
+				}
+			}
+		}
+	}
+}

@@ -1,2 +1,10 @@
 @import "./base/variables";
+@import "./base/mixins";
+
+// components
+@import "./components/header";
+@import "./components/card";
+@import "./components/layout";
+
+// pages
 @import "./pages/dashboard.scss";
