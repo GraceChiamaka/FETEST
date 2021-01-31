@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/common/Header";
 import { Link } from "react-router-dom";
 import Card from "../../components/common/Card";
@@ -25,8 +25,10 @@ import {
 	Dropdown,
 } from "antd";
 import { MdMoreVert } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
 
 const DashboardPage = () => {
+	const [selectedUsers, setSelectedUsers] = useState([]);
 	const menu = (
 		<Menu>
 			<Menu.Item>
@@ -180,6 +182,7 @@ const DashboardPage = () => {
 		{
 			title: "NAME",
 			dataIndex: "name",
+			key: "name",
 			render: (name) => (
 				<div className="info-table-name">
 					<img src={ArrowDownCircle} alt="" />
@@ -191,6 +194,7 @@ const DashboardPage = () => {
 		{
 			title: "LOCATION",
 			dataIndex: "location",
+			key: "location",
 			render: (location) => (
 				<div className="info-table-location">
 					<p className="state">{location.state}</p>
@@ -201,6 +205,7 @@ const DashboardPage = () => {
 		{
 			title: "STATUS",
 			dataIndex: "status",
+			key: "status",
 			render: (status) => (
 				<span
 					className={
@@ -215,6 +220,7 @@ const DashboardPage = () => {
 		{
 			title: "ENTRIES",
 			dataIndex: "entries",
+			key: "entries",
 			className: "info-entries",
 			render: (entries) => (
 				<div className="">
@@ -228,6 +234,7 @@ const DashboardPage = () => {
 		},
 		{
 			title: "RISK PROFILE",
+			key: "riskProfile",
 			dataIndex: "riskProfile",
 			className: "info-risk-profile",
 			render: (riskProfile) => <div>{displayProfile(riskProfile)}</div>,
@@ -235,6 +242,7 @@ const DashboardPage = () => {
 		{
 			title: "",
 			dataIndex: "id",
+			key: "id",
 			align: "Right",
 
 			render: (id) => (
@@ -290,18 +298,14 @@ const DashboardPage = () => {
 		);
 	};
 
-	const rowSelection = {
-		onChange: (selectedRowKeys, selectedRows) => {
-			console.log(
-				`selectedRowKeys: ${selectedRowKeys}`,
-				"selectedRows: ",
-				selectedRows
-			);
-		},
-		getCheckboxProps: (record) => ({
-			disabled: record.name === "Disabled User", // Column configuration not to be checked
-			name: record.name,
-		}),
+	const onSelectChange = (user) => {
+		console.log(user);
+		setSelectedUsers(user);
+	};
+
+	const userSelection = {
+		selectedUsers,
+		onSelect: onSelectChange,
 	};
 
 	return (
@@ -309,11 +313,19 @@ const DashboardPage = () => {
 			<Header />
 			<div className="breadcrumb-container">
 				<Breadcrumb separator="">
-					<Breadcrumb.Item className="history-breadcrumb">
-						<Link to="/dashboard">Dashboard</Link>
+					<Breadcrumb.Item>
+						<Link to="/divisions">Divisions</Link>
 					</Breadcrumb.Item>
-					<Breadcrumb.Separator className="seperator"> > </Breadcrumb.Separator>
-					<Breadcrumb.Item className="active-page">Divisions</Breadcrumb.Item>
+					<Breadcrumb.Separator className="seperator">
+						{" "}
+						<IoIosArrowForward
+							style={{
+								color: "#0A5685",
+								fontSize: "1.2rem",
+							}}
+						/>{" "}
+					</Breadcrumb.Separator>
+					<Breadcrumb.Item className="active-page">Module</Breadcrumb.Item>
 				</Breadcrumb>
 			</div>
 
@@ -453,7 +465,7 @@ const DashboardPage = () => {
 										<div className="detail">
 											<div className="timestamp">22:10 15/09/2020</div>
 											<div className="category">
-												<span className="dot"></span> web
+												<span className="dot"></span> Web
 											</div>
 										</div>
 									</Timeline.Item>
@@ -464,7 +476,7 @@ const DashboardPage = () => {
 										<div className="detail">
 											<div className="timestamp">22:10 15/09/2020</div>
 											<div className="category">
-												<span className="dot"></span> web
+												<span className="dot"></span> Web
 											</div>
 										</div>
 									</Timeline.Item>
@@ -475,7 +487,7 @@ const DashboardPage = () => {
 										<div className="detail">
 											<div className="timestamp">22:10 15/09/2020</div>
 											<div className="category">
-												<span className="dot"></span> web
+												<span className="dot"></span> Web
 											</div>
 										</div>
 									</Timeline.Item>
@@ -485,14 +497,12 @@ const DashboardPage = () => {
 					</div>
 					<div className="content-main">
 						<Table
-							rowSelection={{
-								type: "checkbox",
-								...rowSelection,
-							}}
+							rowSelection={userSelection}
 							rowClassName="user-info-row"
 							dataSource={dataSource}
 							columns={column}
 							pagination={false}
+							rowKey={(dataSource) => dataSource.id}
 						/>
 					</div>
 				</Row>

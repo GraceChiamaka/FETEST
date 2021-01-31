@@ -27,7 +27,7 @@ const Avatar = ({ className = "" }) => {
 				>
 					<FaUserAlt style={{ color: "#778699" }} />
 				</a>
-				<AiOutlineDown style={{ color: "#778699" }} />
+				<AiOutlineDown style={{ color: "#778699", marginLeft: "5px" }} />
 			</div>
 		</Dropdown>
 	);

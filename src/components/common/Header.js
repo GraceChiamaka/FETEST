@@ -23,23 +23,23 @@ const Header = () => {
 			AltIcon: HomeAltIcon,
 		},
 		{
+			url: "/entries",
+			name: "Entries",
+			Icon: ProjectsIcon,
+			AltIcon: ProjectsAltIcon,
+		},
+		{
 			url: "/divisions",
 			name: "Divisions",
 			Icon: DivisionIcon,
 			AltIcon: DivisionAltIcon,
-		},
-		{
-			url: "/projects",
-			name: "Projects",
-			Icon: ProjectsIcon,
-			AltIcon: ProjectsAltIcon,
 		},
 	];
 	const displayNavItems = () => {
 		return Links.map(({ url, name, Icon, AltIcon }) => {
 			if (window.location.pathname === url) {
 				return (
-					<li className="nav-list active">
+					<li className="nav-list active" key={url}>
 						<Link className="nav-item" to={url}>
 							<AltIcon />
 							<span>{name}</span>
@@ -48,7 +48,7 @@ const Header = () => {
 				);
 			}
 			return (
-				<li className="nav-list">
+				<li className="nav-list" key={url}>
 					<Link className="nav-item" to={url}>
 						<Icon />
 						<span>{name}</span>
